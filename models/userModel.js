@@ -11,6 +11,10 @@ const User = new Schema({
     type: String,
     unique: true,
   },
+  data: {
+    name: { type: String },
+    email: { type: String },
+  },
 });
 
 module.exports = model("User", User, "users");

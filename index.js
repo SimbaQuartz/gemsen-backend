@@ -11,10 +11,13 @@ app.use(routes);
 
 mongoose.set("strictQuery", false);
 mongoose
-  .connect("mongodb+srv://gemsen:gemsen123@cluster0.9ku711l.mongodb.net/test", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://gemsen:gemsen123@cluster0.9ku711l.mongodb.net/gemsen",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() =>
     app.listen(5004, () => {
       console.log("Server listening on port 5004");
