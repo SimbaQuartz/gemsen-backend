@@ -11,6 +11,9 @@ const User = new Schema({
     type: String,
     unique: true,
   },
+  phone: {
+    type: Number,
+  },
   data: {
     name: { type: String },
     email: { type: String },
