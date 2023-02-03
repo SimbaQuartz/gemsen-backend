@@ -18,10 +18,12 @@ mongoose
       useUnifiedTopology: true,
     }
   )
-  .then(() =>
-    app.listen(5004, () => {
-      console.log("Server listening on port 5004");
+  .then(() => {
+    const port = 5004;
+    const hostUrl = "192.168.29.75";
+    return app.listen(port, () => {
+      console.log(`Server listening on port  ${port}`);
       console.log("mongo COnnected");
-    })
-  )
+    });
+  })
   .catch((err) => console.log(err));

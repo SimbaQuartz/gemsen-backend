@@ -1,11 +1,7 @@
-const router = require("express").Router();
+const app = require("express").Router();
 
-const authRoutes = require("./AuthRouter");
+const savedUser = require("../../controller/userLogin/savedUser");
 
-router.use("/auth", authRoutes);
+app.use("/saveduser", savedUser);
 
-router.get("/ping", (req, res) => {
-  res.json({ success: "true", message: "successful request" });
-});
-
-module.exports = router;
+module.exports = app;
