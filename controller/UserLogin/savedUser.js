@@ -4,21 +4,30 @@ const User = require("../../models/UserModel");
 
 router.post("/saved", async (req, res, next) => {
   try {
-    const { name1, email, password, phone1 } = req.body;
+    const { name, email, password, phone } = req.body;
+
+    const userAlreadyExists = await User.findOne({ email: email });
+
+    if (userAlreadyExists) {
+      res.status(500).json({ message: "User already exists" });
+    }
     const user = new User({
-      name: name1,
+      name: name,
       email,
       password,
-      phone: phone1,
+      phone: phone,
       data: {
-        name: name1,
+        name: name,
         email,
       },
     });
     await user.save();
-    res.json({
+
+    const accessToken = "1111";
+    res.status(200).json({
       message: "Saved",
       user,
+      accessToken,
     });
   } catch (err) {
     console.log(err);
