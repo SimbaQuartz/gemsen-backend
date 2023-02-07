@@ -1,7 +1,6 @@
 const app = require("express").Router();
+const authRoot = require("./AuthRouter");
 
-const savedUser = require("../../controller/userLogin/savedUser");
-
-app.use("/saveduser", savedUser);
+app.use("/auth", authRoot);
 
 module.exports = app;
