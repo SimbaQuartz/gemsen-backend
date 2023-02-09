@@ -6,7 +6,7 @@ const updateUser = require("../../controller/userLogin/updateUser");
 const deleteUser = require("../../controller/userLogin/deleteUser");
 
 router.post("/saved", savedUser);
-router.post("/get", getUser);
-router.post("/updateUser/:id", updateUser);
-router.post("/deleteUser/:id", deleteUser);
+router.get("/get", getUser);
+router.put("/updateUser/:id", updateUser);
+router.delete("/deleteUser/:id", deleteUser);
 module.exports = router;
