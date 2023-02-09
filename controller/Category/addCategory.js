@@ -5,10 +5,10 @@ const Category = require("../../models/CategoryModel");
 
 const AddCategory = async (req, res, next) => {
   try {
-    const { name } = req.body;
-
+    const { name, userId } = req.body;
     const category = new Category({
       name,
+      userId,
     });
     await category.save();
 
