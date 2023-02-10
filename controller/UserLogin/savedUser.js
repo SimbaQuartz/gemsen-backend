@@ -1,6 +1,9 @@
 const router = require("express").Router();
 
 const User = require("../../models/UserModel");
+const createError = require("http-errors");
+const generateAccessToken = require("../../services/generateAccessToken");
+const TokenModel = require("../../models/TokenModel");
 
 const SavedUser = async (req, res, next) => {
   try {
@@ -9,7 +12,7 @@ const SavedUser = async (req, res, next) => {
     const userAlreadyExists = await User.findOne({ email: email });
 
     if (userAlreadyExists) {
-      res.status(500).json({ message: "User already exists" });
+      throw createError.BadRequest("User already exists")
     }
     const user = new User({
       name: name,
@@ -23,11 +26,22 @@ const SavedUser = async (req, res, next) => {
     });
     await user.save();
 
-    const accessToken = "1111";
+    const payload = {
+      name: user.name,
+      email: user.email,
+      password: user.password
+    }
+    const tokenValue = generateAccessToken(payload)
+
+    const token = new TokenModel({
+      token: tokenValue,
+      userId: user?._id
+    })
+    await token.save()
+
     res.status(200).json({
       message: "Saved",
       user,
-      accessToken,
     });
   } catch (err) {
     console.log(err);
