@@ -4,10 +4,11 @@ const User = require("../../models/UserModel");
 
 const GetUser = async (req, res, next) => {
   try {
-    const user = await User.find({});
+    console.log(req.user, "eee");
+    // const user = await User.find({});
     res.json({
       message: "fetched succesfully",
-      user,
+      user: req.user,
     });
   } catch (err) {
     next(err);
