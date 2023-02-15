@@ -5,15 +5,15 @@ const Category = require("../../models/CategoryModel");
 
 const AddCategory = async (req, res, next) => {
   try {
-    const { name, userId } = req.body;
+    const { name } = req.body;
     const category = new Category({
       name,
-      userId,
     });
     await category.save();
 
     res.json({
       message: "saved successfully",
+      category,
     });
     console.log(req.body);
   } catch (err) {

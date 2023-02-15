@@ -6,7 +6,7 @@ const updateUser = require("../../controller/userLogin/updateUser");
 const deleteUser = require("../../controller/userLogin/deleteUser");
 const validateAccessToken = require("../../services/jwtValidation");
 router.post("/saved", savedUser);
-router.get("/get", validateAccessToken, getUser);
+router.get("/me", validateAccessToken, getUser);
 router.put("/updateUser/:id", updateUser);
 router.delete("/deleteUser/:id", deleteUser);
 module.exports = router;
