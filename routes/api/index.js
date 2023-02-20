@@ -1,8 +1,8 @@
 const app = require("express").Router();
 const authRoot = require("./AuthRouter");
-const categoryRoot = require("./CategoryRouter");
+const categoryRoute = require("./CategoryRouter");
 
 app.use("/auth", authRoot);
-app.use("/category", categoryRoot);
+app.use("/category", categoryRoute);
 
 module.exports = app;
