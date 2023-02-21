@@ -9,6 +9,7 @@ const addNestedSubCategory = require("../../controller/Category/addNestedSubCate
 const getNestedSubCategoryDetails = require("../../controller/Category/getNestedSubCategoryDetails");
 const addLastCategory = require("../../controller/Category/addLastCategory");
 const getMainCategory = require("../../controller/Category/getMainCategory");
+const getAllMainCategory = require("../../controller/Category/getAllMainCategory");
 const validateAccessToken = require("../../services/jwtValidation");
 
 router.post("/addcategory", addCategory);
@@ -18,6 +19,7 @@ router.post("/addLastCategory", addLastCategory);
 router.get("/getNestedCategoryDetails/:id", getNestedSubCategoryDetails);
 router.get("/getSubCategory/:id", getSubCategory);
 router.get("/getMainCategoryDetails/:id", getMainCategory);
+router.get("/getMainCategoryDetails/", getAllMainCategory);
 router.delete("/deletecategory/:id", deleteCategory);
 router.put("/updatecategory/:id", updateCategory);
 
