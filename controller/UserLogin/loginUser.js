@@ -17,7 +17,8 @@ const loginUser = async (req, res, next) => {
     }
 
     if (password !== userAlreadyExists?.password) {
-      throw createError.BadRequest("Password incorrect");
+      // throw createError.BadRequest("Password incorrect");
+      res.status(500).send({ message: "Password Incorrect" });
     }
 
     const payload = {

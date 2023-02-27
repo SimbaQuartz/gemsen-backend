@@ -13,21 +13,16 @@ const getSubCategory = async (req, res, next) => {
       },
       {
         $lookup: {
-          from: "category", // join from which model (mongodb schema name)
-          localField: "categoryId", // jis model ke andar hain hmlog, uski ID jo jijn krni hai , foreign field se
-          foreignField: "_id", // id from which we are joining
-          as: "categoryDetails", // return data
-        },
-      },
-      {
-        $unwind: {
-          path: "$categoryDetails",
+          from: "nestedSubCategory",
+          localField: "_id",
+          foreignField: "subCategoryId",
+          as: "nestedSubCategory",
         },
       },
     ]);
 
     res.json({
-      message: "Delete succesfully",
+      message: "Fetched succesfully",
       data,
     });
   } catch (err) {

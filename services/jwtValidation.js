@@ -18,11 +18,12 @@ const validateAccessToken = async (req, res, next) => {
   //accesstoken
   const token = req.headers["authorization"];
 
-  console.log(token, "token");
   jwt.verify(token, accessSecret, async (err, decoded) => {
     if (err) {
       return next(createError.Unauthorized("Please login again"));
     }
+
+    console.log(decoded, "decodes");
     req.user = decoded;
     next();
   });
