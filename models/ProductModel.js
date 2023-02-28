@@ -12,10 +12,24 @@ const ProductSchema = new Schema({
   qty: {
     type: Number,
   },
-  data: {
-    name: { type: String },
-    sku: { type: String },
-    qty: { type: Number },
+  mainCategoryId: {
+    type: Schema.Types.ObjectId,
+    ref: "Category",
+  },
+  subCategoryId: {
+    type: Schema.Types.ObjectId,
+    ref: "SubCategory",
+  },
+  nestedSubCategoryId: {
+    type: Schema.Types.ObjectId,
+    ref: "NestedSubCategory",
+  },
+  lastCategoryId: {
+    type: Schema.Types.ObjectId,
+    ref: "LastCategory",
+  },
+  image: {
+    type: String,
   },
 });
 

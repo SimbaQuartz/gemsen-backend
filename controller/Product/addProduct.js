@@ -5,11 +5,23 @@ const Product = require("../../models/ProductModel");
 
 const AddProduct = async (req, res, next) => {
   try {
-    const { name, sku, qty } = req.body;
+    const {
+      name,
+      sku,
+      qty,
+      mainCategoryId,
+      subCategoryId,
+      nestedSubCategoryId,
+      lastCategoryId,
+    } = req.body;
     const product = new Product({
       name,
       sku,
       qty,
+      mainCategoryId,
+      subCategoryId,
+      nestedSubCategoryId,
+      lastCategoryId,
     });
     await product.save();
 
