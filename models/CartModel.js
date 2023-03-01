@@ -1,24 +1,25 @@
 const { Schema, model } = require("mongoose");
 
 const CartSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
+  productId: {
+    type: Schema.Types.ObjectId,
+    ref: "Product",
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    unique: true,
-  },
-  phone: {
+  quantity: {
     type: Number,
   },
-  data: {
-    name: { type: String },
-    email: { type: String },
+  userId: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
+  SubTotalPrice: {
+    type: Number,
+  },
+  tax: {
+    type: Number,
+  },
+  totalPrice: {
+    type: Number,
   },
 });
 

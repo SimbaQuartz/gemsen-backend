@@ -4,8 +4,10 @@ const Product = require("../../models/ProductModel");
 
 const GetProduct = async (req, res, next) => {
   try {
-    const { id } = req.params;
-    const products = await Product.find({ lastCategoryId: ObjectId(id) });
+    const { categoryId } = req.params;
+    const products = await Product.find({
+      lastCategoryId: ObjectId(categoryId),
+    });
 
     res.json({
       message: "product saved successfully",

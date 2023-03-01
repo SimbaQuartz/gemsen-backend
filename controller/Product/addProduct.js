@@ -13,7 +13,11 @@ const AddProduct = async (req, res, next) => {
       subCategoryId,
       nestedSubCategoryId,
       lastCategoryId,
+      description,
+      inventory,
     } = req.body;
+
+    console.log(req.body);
     const product = new Product({
       name,
       sku,
@@ -22,6 +26,8 @@ const AddProduct = async (req, res, next) => {
       subCategoryId,
       nestedSubCategoryId,
       lastCategoryId,
+      description,
+      inventory,
     });
     await product.save();
 
