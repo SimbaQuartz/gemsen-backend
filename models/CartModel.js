@@ -12,15 +12,6 @@ const CartSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: "User",
   },
-  SubTotalPrice: {
-    type: Number,
-  },
-  tax: {
-    type: Number,
-  },
-  totalPrice: {
-    type: Number,
-  },
 });
 
-module.exports = model("User", CartSchema, "cart");
+module.exports = model("Cart", CartSchema, "cart");
