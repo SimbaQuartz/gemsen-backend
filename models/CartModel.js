@@ -14,4 +14,4 @@ const CartSchema = new Schema({
   },
 });
 
-module.exports = model("Cart", CartSchema, "cart");
+module.exports = model("User", CartSchema, "cart");
