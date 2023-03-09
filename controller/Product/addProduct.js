@@ -15,6 +15,7 @@ const AddProduct = async (req, res, next) => {
       lastCategoryId,
       description,
       inventory,
+      price,
     } = req.body;
 
     console.log(req.body);
@@ -28,6 +29,7 @@ const AddProduct = async (req, res, next) => {
       lastCategoryId,
       description,
       inventory,
+      price,
     });
     await product.save();
 

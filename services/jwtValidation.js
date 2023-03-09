@@ -23,7 +23,6 @@ const validateAccessToken = async (req, res, next) => {
       return next(createError.Unauthorized("Please login again"));
     }
 
-    console.log(decoded, "decodes");
     req.user = decoded;
     next();
   });
