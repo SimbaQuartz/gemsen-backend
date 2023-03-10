@@ -20,6 +20,7 @@ const getCart = async (req, res, next) => {
       {
         $unwind: {
           path: "$productDetails",
+          preserveNullAndEmptyArrays: true,
         },
       },
     ]);

@@ -20,6 +20,9 @@ const OrderSchema = new Schema(
     orderId: {
       type: String,
     },
+    purchaseOrderNumber: {
+      type: String,
+    },
   },
   {
     timestamps: true,
